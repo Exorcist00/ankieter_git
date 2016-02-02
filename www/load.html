@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Wczytywanie szablonów ankiet</title>
+	<script type="text/javascript" charset="utf-8" src="js/load.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/Survey.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/filesRead.js"></script>
+	<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+
+	<script type="text/javascript" charset="utf-8">
+        var onDeviceReady = function() {
+			
+        	window.requestFileSystem(LocalFileSystem.PERSISTENT,0,gotFS,null);
+        };
+
+        function init() {
+        clearSurveyList();
+        
+            document.addEventListener("deviceready", onDeviceReady,true);
+        }   
+	</script>  
+</head>
+<body onload="init();">
+<h2>Lista wczytanych szablonów</h2>
+<div id="lista"></div>
+<p id="test"></p>
+</body>
+</html>

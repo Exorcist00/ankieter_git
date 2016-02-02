@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Wybor ankiety</title>
+	<script type="text/javascript" charset="utf-8" src="js/fill.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/ActiveSurvey.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/Survey.js"></script>
+	<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+
+	<script type="text/javascript" charset="utf-8">
+    
+
+        function init() {            
+            var list = getSurveyList();
+           
+            for(var i=0;i<list.length;i++){
+            	var val=list[i];
+            	createFillButton(document.getElementById("lista"),val);
+            }
+        }   
+	</script>  
+</head>
+<body onload="init();">
+<h2>Lista ankiet</h2>
+<ul id="lista">
+
+</ul>
+<p id="test"></p>
+</body>
+</html>

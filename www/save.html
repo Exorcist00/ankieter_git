@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Zapis wypełnionej ankiety</title>
+	<script type="text/javascript" charset="utf-8" src="js/save.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/FilledSurvey.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/filesWrite.js"></script>
+	<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+
+	<script type="text/javascript" charset="utf-8">
+    
+
+        function init() {            
+            var list = getFilledSurveyList();
+            
+            for(var i=0;i<list.length;i++){
+            	var val=list[i];
+            	//document.getElementById("test").innerHTML = JSON.stringify(val);
+            	createButton(document.getElementById("lista"),val);
+            }
+        }   
+	</script>  
+</head>
+<body onload="init();">
+<h2>Lista wypełnionych ankiet</h2>
+<ul id="lista">
+
+</ul>
+<p id="test"></p>
+</body>
+</html>

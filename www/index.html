@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta name="viewport" content="width=320; user-scalable=no" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>Ankieter</title>
+    
+	<script type="text/javascript" charset="utf-8" src="js/FilledSurvey.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/Survey.js"></script>
+	<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+	<script type="text/javascript" charset="utf-8">
+      
+        var onDeviceReady = function() {
+        	window.requestFileSystem(LocalFileSystem.PERSISTENT,0,gotFS,null);
+        };
+        
+        function gotFS(fileSystem){
+            fileSystem.root.getDirectory("ankiety",{create: true});
+        	fileSystem.root.getDirectory("ankiety/szablony",{create: true});
+        	fileSystem.root.getDirectory("ankiety/rozw",{create: true});
+        	//document.getElementById("devready").innerHTML=fileSystem.root.toURL();
+        	
+        }
+
+        function init() {
+        	//clearSurveyList();
+            document.addEventListener("deviceready", onDeviceReady);
+            
+            var deviceId = window.localStorage.getItem("deviceId");
+            if(!deviceId){
+            	var devID="";
+            	for(var i=0;i<5;i++){
+            		devID = devID + Math.floor(Math.random()*10);
+            		devID = devID + Math.floor(Math.random()*10);
+            		devID = devID + ":";
+            	}
+            	devID = devID + Math.floor(Math.random()*10);
+            	devID = devID + Math.floor(Math.random()*10);
+            	
+            	window.localStorage.setItem("deviceId",devID);
+            	document.getElementById("deviceID").innerHTML = devID;
+            } else {
+            	document.getElementById("deviceID").innerHTML = deviceId;
+            }
+        }   
+	</script>  
+
+  </head>
+  <body onload="init();" id="stage" class="theme">
+    <h2>Menu główne</h2>
+
+	<div>
+	<button onclick="location.href = 'load.html'">Załaduj szablony ankiet</button><br/>
+	<button onclick="location.href = 'fill.html'">Wypełnij ankietę</button><br/>
+	<button onclick="location.href = 'save.html'">Zapisz ankietę do pliku</button>
+	
+    </div>
+    <br/>
+    <br/>
+    <br/>
+    <p id="deviceID"></p>
+	<p id="test"></p>
+	<button onclick="clearFilledSurveyList();">usun odpowiedzi</button>
+  </body>
+</html>

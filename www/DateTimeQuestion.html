@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Pytanie jednokrotnego wyboru</title>
+	<script type="text/javascript" charset="utf-8" src="js/dateChoice.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/ActiveSurvey.js"></script>
+	<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+
+</head>
+<body onload="init();">
+<h2 id="question"></h2><br/>
+<h3 id="hint"></h3>
+
+<table id="answers">
+
+</table>
+
+<div>
+	<button id="obl" onclick="noAnswer();">Bez odpowiedzi</button>
+</div>
+<div>
+<button onclick="answer();">Przejdź dalej</button>
+	
+</div>
+    
+</body>
+</html>

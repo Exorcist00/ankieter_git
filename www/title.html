@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta name="viewport" content="width=320; user-scalable=no" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>Ankieta - strona tytułowa</title>
+
+	<script type="text/javascript" charset="utf-8" src="js/ActiveSurvey.js"></script>
+	<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+	<script type="text/javascript" charset="utf-8">
+      
+
+        function init() {
+       		var last = JSON.parse(window.localStorage.getItem("lastQuestionId")) + 1;
+			window.localStorage.setItem("lastQuestionId",JSON.stringify(last));	
+            document.getElementById("title").innerHTML = getActiveSurvey().title;
+          	document.getElementById("description").innerHTML = getActiveSurvey().description;
+            
+        }   
+	</script>  
+
+  </head>
+  <body onload="init();">
+    <h2 id="title"></h2>
+    <br/>
+    <h3 id="description"></h3>
+
+	<div>
+	<button onclick="nextQuestion();">Przejdź dalej</button>
+	
+    </div>
+    <br/>
+    <br/>
+    <br/>
+    <p id="deviceID"></p>
+  </body>
+</html>

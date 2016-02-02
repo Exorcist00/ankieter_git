@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta name="viewport" content="width=320; user-scalable=no" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>Ankieta - strona podsumowująca</title>
+
+	<script type="text/javascript" charset="utf-8" src="js/ActiveSurvey.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/FilledSurvey.js"></script>
+	<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+	<script type="text/javascript" charset="utf-8">
+      
+
+        function init() {
+            document.getElementById("summary").innerHTML = getActiveSurvey().summary;
+            
+        }   
+	</script>  
+
+  </head>
+  <body onload="init();" id="stage" class="theme">
+  
+    <br/>
+    <h3 id="summary"></h3>
+
+	<div>
+	<button onclick="endActiveSurvey();">Przejdź dalej</button>
+	
+    </div>
+    <br/>
+    <br/>
+    <br/>
+    <p id="deviceID"></p>
+	<p id="test"></p>
+  </body>
+</html>
